@@ -4,6 +4,7 @@ cluster = MongoClient(
     "mongodb+srv://anju:vilashni@workplease.s7aqg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = cluster["test"]
 collection = db["test"]
+collection1 = db["signup"]
 
 
 #
@@ -31,14 +32,12 @@ collection = db["test"]
 def to_dictionary(keys, values):
     return dict(zip(keys, values))
 
-
-#
-#
-keys = ["name", "age"]
-name = input("Enter name:")
-age = int(input("Enter age:"))
+keys = ["name", "email", "password"]
+name = input("Enter name: ")
+email = input("Enter email: ")
+password = input("Enter password: ")
 values = []
-values.extend((name, age))
+values.extend((name, email, password))
 dict1 = to_dictionary(keys, values)
 print(dict1)
-collection.insert_one(dict1)
+collection1.insert_one(dict1)
