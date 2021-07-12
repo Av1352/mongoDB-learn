@@ -22,6 +22,10 @@ def index():
     return render_template('index.html', count_test=count_test, count_signup=count_signup, count_login=count_login)
 
 
+def to_dictionary(keys, values):
+    return dict(zip(keys, values))
+
+
 @app.route("/users", methods=["GET", "POST"])
 def create_users():
     if request.method == "POST":
@@ -38,10 +42,6 @@ def create_users():
         return render_template("users.html")
     if request.method == "GET":
         return render_template("users.html")
-
-
-def to_dictionary(keys, values):
-    return dict(zip(keys, values))
 
 
 @app.route("/signup", methods=["GET", "POST"])
@@ -64,8 +64,14 @@ def signup():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        # email = request.form.get('email')
-        # password = request.form.get('pass')
+        keys_login = ["username", "password"]
+        username = request.form.get('your_name')
+        password = request.form.get('your_pass')
+        values = []
+        values.extend((username, password))
+        dict_login = to_dictionary(keys_login, values)
+        print(dict_login)
+        collection_login.insert_one(dict_login)
         return render_template("login.html")
     if request.method == "GET":
         return render_template("login.html")
