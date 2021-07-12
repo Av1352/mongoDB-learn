@@ -10,7 +10,7 @@ cluster = MongoClient(
     "mongodb+srv://anju:vilashni@workplease.s7aqg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = cluster["test"]
 collection = db["test"]
-collection1 = db["signup"]
+collection_signup = db["signup"]
 count = collection.count_documents({})
 
 
@@ -44,6 +44,15 @@ def to_dictionary(keys, values):
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
+        keys_signup = ["name", "email", "password"]
+        name = input("Enter name: ")
+        email = input("Enter email: ")
+        password = input("Enter password: ")
+        values = []
+        values.extend((name, email, password))
+        dict_signup = to_dictionary(keys_signup, values)
+        print(dict_signup)
+        collection_signup.insert_one(dict_signup)
         # email = request.form.get('email')
         # password = request.form.get('pass')
         return render_template("signup.html")
