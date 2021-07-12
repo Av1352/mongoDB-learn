@@ -39,6 +39,12 @@ def create_users():
 def to_dictionary(keys, values):
     return dict(zip(keys, values))
 
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    if request.method =="POST":
+        email = request.form.get('email')
+        password = request.form.get('pass')
+        return render_template("signup.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
