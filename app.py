@@ -13,9 +13,7 @@ app_root = os.path.abspath(os.path.dirname(__file__))
 cluster = MongoClient(
     "mongodb+srv://anju:vilashni@workplease.s7aqg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = cluster["test"]
-collection = db["test"]
 collection_signup = db["signup"]
-count_test = collection.count_documents({})
 count_signup = collection_signup.count_documents({})
 
 
@@ -28,7 +26,7 @@ def to_dictionary(keys, values):
 
 @app.route('/')
 def index():
-    return render_template('index.html', count_test=count_test, count_signup=count_signup)
+    return render_template('index.html', count_signup=count_signup)
 
 
 @app.route("/signup", methods=["GET", "POST"])
