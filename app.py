@@ -11,12 +11,15 @@ cluster = MongoClient(
 db = cluster["test"]
 collection = db["test"]
 collection_signup = db["signup"]
-count = collection.count_documents({})
+collection_login = db["login"]
+count_test = collection.count_documents({})
+count_signup = collection_signup.count_documents({})
+count_login = collection_login.count_documents({})
 
 
 @app.route('/')
 def index():
-    return render_template('index.html', count=count)
+    return render_template('index.html', count_test=count_test, count_signup=count_signup, count_login=count_login)
 
 
 @app.route("/users", methods=["GET", "POST"])
