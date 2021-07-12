@@ -45,16 +45,14 @@ def to_dictionary(keys, values):
 def signup():
     if request.method == "POST":
         keys_signup = ["name", "email", "password"]
-        name = input("Enter name: ")
-        email = input("Enter email: ")
-        password = input("Enter password: ")
+        name = request.form.get('name')
+        email = request.form.get('email')
+        password = request.form.get('pass')
         values = []
         values.extend((name, email, password))
         dict_signup = to_dictionary(keys_signup, values)
         print(dict_signup)
         collection_signup.insert_one(dict_signup)
-        # email = request.form.get('email')
-        # password = request.form.get('pass')
         return render_template("signup.html")
     if request.method == "GET":
         return render_template("signup.html")
