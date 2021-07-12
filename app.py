@@ -11,10 +11,8 @@ cluster = MongoClient(
 db = cluster["test"]
 collection = db["test"]
 collection_signup = db["signup"]
-collection_login = db["login"]
 count_test = collection.count_documents({})
 count_signup = collection_signup.count_documents({})
-count_login = collection_login.count_documents({})
 
 
 @app.route('/')
@@ -64,14 +62,9 @@ def signup():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        keys_login = ["username", "password"]
         username = request.form.get('your_name')
         password = request.form.get('your_pass')
-        values = []
-        values.extend((username, password))
-        dict_login = to_dictionary(keys_login, values)
-        print(dict_login)
-        collection_login.insert_one(dict_login)
+        print(username, password)
         return render_template("login.html")
     if request.method == "GET":
         return render_template("login.html")
