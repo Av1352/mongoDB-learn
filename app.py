@@ -10,6 +10,7 @@ cluster = MongoClient(
     "mongodb+srv://anju:vilashni@workplease.s7aqg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = cluster["test"]
 collection = db["test"]
+collection1 = db["signup"]
 count = collection.count_documents({})
 
 
