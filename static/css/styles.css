@@ -172,7 +172,7 @@ figure {
   margin: 0; }
 
 p {
-  margin-bottom: 0px;
+  margin-bottom: 1px;
   font-size: 15px;
   color: #777; }
 
@@ -413,7 +413,6 @@ label {
 
 label.error {
   position: relative;
-  background: url("../images/unchecked.gif") no-repeat;
   background-position-y: 3px;
   padding-left: 20px;
   display: block;
