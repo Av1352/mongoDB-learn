@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-
 <header>
     <div class="home_page">
-    <h1>The count of test is {{count_test}}</h1>
     <h1>The count of signup is {{count_signup}}</h1>
     <a href="{{url_for('signup')}}"><button class="btn btn-danger" style="width:400px;height:50px">Signup</button></a>
     <a href="{{url_for('login')}}"><button class="btn btn-danger" style="width:400px;height:50px">Log in</button></a>
