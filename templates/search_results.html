@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<style>
+.boxed {
+  border: 1px solid green ;
+}
+</style>
+
+ <title>Title</title>
+</head>
+<body>
+
+
+
+
+{% for dict_item in final_search_results %}
+
+
+
+          <h1>username: {{a[dict_item][1]}}</h1>
+          <h2>tweet: {{a[dict_item][2]}}</h2>
+
+        {% endfor %}
+{% endfor %}
+
+
+
+
+
+
+</body>
+</html>
