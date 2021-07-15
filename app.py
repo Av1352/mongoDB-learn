@@ -11,8 +11,8 @@ app_root = os.path.abspath(os.path.dirname(__file__))
 # <-------- MONGO CONNECTION -------->
 
 cluster = MongoClient(
-    "mongodb+srv://anju:vilashni@workplease.s7aqg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-db = cluster["test"]
+    "mongodb+srv://sakura:sakura@user.g2qy7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+db = cluster["user"]
 collection_signup = db["signup"]
 count_signup = collection_signup.count_documents({})
 
